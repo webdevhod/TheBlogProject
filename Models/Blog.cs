@@ -17,7 +17,7 @@ namespace TheBlogProject.Models
         public byte[]? ImageData { get; set; }
         public string? ImageType { get; set; }
 
-        public virtual IdentityUser Author { get; set; }
+        public virtual BlogUser Author { get; set; }
         public virtual ICollection<Post> Posts { get; set; } = new HashSet<Post>();
 
     }

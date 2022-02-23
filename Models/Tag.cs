@@ -15,6 +15,6 @@ namespace TheBlogProject.Models
         public DateTime Modified { get; set; }
         
         public virtual Post Posts { get; set; }
-        public virtual IdentityUser Author { get; set; }
+        public virtual BlogUser Author { get; set; }
     }
 }
