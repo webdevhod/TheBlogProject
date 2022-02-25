@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using TheBlogProject.Enums;
 
 namespace TheBlogProject.Models
@@ -8,7 +9,7 @@ namespace TheBlogProject.Models
     {
         public int Id { get; set; }
         public int BlogId { get; set; }
-        public string AuthorId { get; set; }
+        public string BlogUserId { get; set; }
         [StringLength(100, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = 2)]
         public string Title { get; set; }
         [StringLength(500, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = 2)]
@@ -19,11 +20,13 @@ namespace TheBlogProject.Models
         public DateTime Modified { get; set; }
         public string Slug { get; set; }
         public ReadyStatus ReadyStatus { get; set; }
+
+        [NotMapped]
         public IFormFile? ImageFile { get; set; }
         public byte[]? ImageData { get; set; }
         public string? ImageType { get; set; }
 
-        public virtual BlogUser Author { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
         public virtual Blog Blog { get; set; }
         public virtual ICollection<Tag> Tags { get; set; } = new HashSet<Tag>();
         public virtual ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();

@@ -7,7 +7,7 @@ namespace TheBlogProject.Models
     {
         public int Id { get; set; }
         public int PostId { get; set; }
-        public string AuthorId { get; set; }
+        public string BlogUserId { get; set; }
         [StringLength(50, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = 2)]
         public string Text { get; set; }
         [StringLength(500, ErrorMessage = "The {0} must be between {2} and {1} characters.", MinimumLength = 2)]
@@ -15,6 +15,6 @@ namespace TheBlogProject.Models
         public DateTime Modified { get; set; }
         
         public virtual Post Posts { get; set; }
-        public virtual BlogUser Author { get; set; }
+        public virtual BlogUser BlogUser { get; set; }
     }
 }
